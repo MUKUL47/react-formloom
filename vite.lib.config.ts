@@ -1,7 +1,41 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
+import { transform } from "esbuild";
 import path from "path";
+
+/**
+ * Minify the ESM library output ourselves.
+ *
+ * Vite will not do it. `minify: "esbuild"` hits a carve-out that forces
+ * `minifyWhitespace: false` for ES lib builds, and `minify: "terser"` hits
+ * `if (config.build.lib && outputOptions.format === "es") return null` — the
+ * terser plugin bails out entirely. Both exist to protect the
+ * `/* @__PURE__ *\/` annotations that let a consumer's bundler tree-shake
+ * unused exports; minifying consumes and drops them. That cost is accepted
+ * here in exchange for a ~30% smaller file.
+ *
+ * Runs at `enforce: "post"`, so it sees the final chunk after Vite's own
+ * esbuild pass, and returns a sourcemap that Rollup chains onto the rest.
+ */
+function minifyEsLib(): Plugin {
+  return {
+    name: "minify-es-lib",
+    enforce: "post",
+    async renderChunk(code, chunk, outputOptions) {
+      if (outputOptions.format !== "es") return null;
+      const result = await transform(code, {
+        minify: true,
+        target: "es2020",
+        format: "esm",
+        sourcemap: true,
+        sourcefile: chunk.fileName,
+        legalComments: "none",
+      });
+      return { code: result.code, map: result.map };
+    },
+  };
+}
 
 // Library build config for the npm package `formloom`.
 // Emits a single ESM bundle + a rolled-up index.d.ts. CSS is built
@@ -23,6 +57,7 @@ export default defineConfig({
       include: ["src/components/**/*.ts", "src/components/**/*.tsx", "src/lib/**/*.ts", "src/validator/**/*.ts"],
       exclude: ["**/*.test.ts", "**/*.test.tsx"], // never emit .d.ts for test files
     }),
+    minifyEsLib(),
   ],
   resolve: {
     alias: {
@@ -36,14 +71,13 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true,
     sourcemap: true,
-    // NOTE: dist/*.js looks unminified — identifiers are mangled but the
-    // whitespace is intact. That is deliberate on Vite's part, not a missing
-    // setting: for an ESM *library* build it forces `minifyWhitespace: false`
-    // so the 778 `/* @__PURE__ */` annotations survive. Those annotations are
-    // what let a consumer's bundler tree-shake the builder half away when they
-    // import only `FormRenderer`. Full minification saves 7 kB gzipped and
-    // destroys every one of them. `build.minify` is already "esbuild" here —
-    // setting it changes nothing.
+    // Both of these exist to get Vite's internal esbuild renderChunk pass to
+    // bail out (it returns early only when the target is esnext AND minify is
+    // off). That pass is registered AFTER user `post` plugins, so if it runs it
+    // re-prints minifyEsLib()'s output with the whitespace put back. The plugin
+    // does the es2020 lowering and the minification itself.
+    target: "esnext",
+    minify: false,
     lib: {
       // Two standalone entries:
       //  • the React builder/renderer (formloom.js)

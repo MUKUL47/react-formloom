@@ -25,6 +25,10 @@ dist-site/
 # Local npm-consumer sandbox
 _dev/
 
+# Vite's temp transpiled config — survives an interrupted build and would
+# otherwise be published (it was, in 1.0.2).
+*.timestamp-*.mjs
+
 # Repo meta
 .git
 .github
