@@ -1,6 +1,6 @@
 {
   "name": "formloom",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React drag-and-drop form builder + runtime renderer, plus a standalone, dependency-free schema→Zod validator (formloom/validator) for server-side validation. 24 field types, hooks, reactive side effects, sections/tabs/arrays, custom widgets, file uploads.",
   "type": "module",
   "license": "MIT",
