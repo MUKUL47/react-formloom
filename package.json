@@ -1,6 +1,6 @@
 {
   "name": "formloom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React drag-and-drop form builder + runtime renderer, plus a standalone, dependency-free schema→Zod validator (formloom/validator) for server-side validation. 24 field types, hooks, reactive side effects, sections/tabs/arrays, custom widgets, file uploads.",
   "type": "module",
   "license": "MIT",
@@ -92,31 +92,81 @@
     "tailwind-merge": "^3.5.0"
   },
   "peerDependenciesMeta": {
-    "@dnd-kit/core": { "optional": true },
-    "@dnd-kit/modifiers": { "optional": true },
-    "@dnd-kit/sortable": { "optional": true },
-    "@dnd-kit/utilities": { "optional": true },
-    "@monaco-editor/react": { "optional": true },
-    "@radix-ui/react-checkbox": { "optional": true },
-    "@radix-ui/react-collapsible": { "optional": true },
-    "@radix-ui/react-dialog": { "optional": true },
-    "@radix-ui/react-label": { "optional": true },
-    "@radix-ui/react-popover": { "optional": true },
-    "@radix-ui/react-radio-group": { "optional": true },
-    "@radix-ui/react-select": { "optional": true },
-    "@radix-ui/react-separator": { "optional": true },
-    "@radix-ui/react-slider": { "optional": true },
-    "@radix-ui/react-slot": { "optional": true },
-    "@radix-ui/react-switch": { "optional": true },
-    "class-variance-authority": { "optional": true },
-    "clsx": { "optional": true },
-    "cmdk": { "optional": true },
-    "date-fns": { "optional": true },
-    "lucide-react": { "optional": true },
-    "react": { "optional": true },
-    "react-day-picker": { "optional": true },
-    "react-dom": { "optional": true },
-    "tailwind-merge": { "optional": true }
+    "@dnd-kit/core": {
+      "optional": true
+    },
+    "@dnd-kit/modifiers": {
+      "optional": true
+    },
+    "@dnd-kit/sortable": {
+      "optional": true
+    },
+    "@dnd-kit/utilities": {
+      "optional": true
+    },
+    "@monaco-editor/react": {
+      "optional": true
+    },
+    "@radix-ui/react-checkbox": {
+      "optional": true
+    },
+    "@radix-ui/react-collapsible": {
+      "optional": true
+    },
+    "@radix-ui/react-dialog": {
+      "optional": true
+    },
+    "@radix-ui/react-label": {
+      "optional": true
+    },
+    "@radix-ui/react-popover": {
+      "optional": true
+    },
+    "@radix-ui/react-radio-group": {
+      "optional": true
+    },
+    "@radix-ui/react-select": {
+      "optional": true
+    },
+    "@radix-ui/react-separator": {
+      "optional": true
+    },
+    "@radix-ui/react-slider": {
+      "optional": true
+    },
+    "@radix-ui/react-slot": {
+      "optional": true
+    },
+    "@radix-ui/react-switch": {
+      "optional": true
+    },
+    "class-variance-authority": {
+      "optional": true
+    },
+    "clsx": {
+      "optional": true
+    },
+    "cmdk": {
+      "optional": true
+    },
+    "date-fns": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-day-picker": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "tailwind-merge": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@dnd-kit/core": "^6.3.1",
