@@ -212,7 +212,7 @@ export function Site() {
         </div>
         <div className="flex items-center gap-1">
           <a href={`https://www.npmjs.com/package/${PKG}`} className="rounded-md px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground">npm</a>
-          <a href="https://github.com/MUKUL47/reactcustomformbuilder" className="grid h-8 w-8 place-items-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground" aria-label="GitHub"><Code className="h-4 w-4" /></a>
+          <a href="https://github.com/MUKUL47/react-formloom" className="grid h-8 w-8 place-items-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground" aria-label="GitHub"><Code className="h-4 w-4" /></a>
           <button onClick={() => setDark((d) => !d)} className="grid h-8 w-8 place-items-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground" aria-label="Toggle theme">
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
@@ -753,7 +753,7 @@ function EditForm({ schema, submissionId }: { schema: FormSchema; submissionId: 
           </Section>
 
           <footer className="pt-14 text-sm text-muted-foreground">
-            <p>MIT © Mukul Dutt · <a className="text-primary hover:underline" href="https://github.com/MUKUL47/reactcustomformbuilder">GitHub</a> · <a className="text-primary hover:underline" href={`https://www.npmjs.com/package/${PKG}`}>npm</a></p>
+            <p>MIT © Mukul Dutt · <a className="text-primary hover:underline" href="https://github.com/MUKUL47/react-formloom">GitHub</a> · <a className="text-primary hover:underline" href={`https://www.npmjs.com/package/${PKG}`}>npm</a></p>
             <p className="mt-1">Every form on this page is a live {PKG} renderer.</p>
           </footer>
         </main>

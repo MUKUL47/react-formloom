@@ -5,13 +5,13 @@
   "type": "module",
   "license": "MIT",
   "author": "Mukul Dutt <mukuldutt1234@gmail.com>",
-  "homepage": "https://mukul47.github.io/reactcustomformbuilder/",
+  "homepage": "https://mukul47.github.io/react-formloom/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MUKUL47/reactcustomformbuilder.git"
+    "url": "git+https://github.com/MUKUL47/react-formloom.git"
   },
   "bugs": {
-    "url": "https://github.com/MUKUL47/reactcustomformbuilder/issues"
+    "url": "https://github.com/MUKUL47/react-formloom/issues"
   },
   "keywords": [
     "react",

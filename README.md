@@ -17,7 +17,7 @@ npm install formloom
 
 Design forms with a drag-and-drop builder, save a `FormSchema` (plain JSON), and run it with `<FormRenderer>`. 24 field types, per-field & global hooks, reactive side effects, sections / tabs / arrays, custom widgets, file uploads, and dark mode.
 
-### 👉 Live demo & full docs: **[mukul47.github.io/reactcustomformbuilder](https://mukul47.github.io/reactcustomformbuilder/)**
+### 👉 Live demo & full docs: **[mukul47.github.io/react-formloom](https://mukul47.github.io/react-formloom/)**
 
 Everything about the UI half — every field type, hooks, side effects, widgets, theming, styling, and an interactive playground — lives on the docs site. A quick taste:
 
@@ -37,7 +37,7 @@ export function BuilderPage() {
 }
 ```
 
-**Peer dependencies for this half** (optional, so validator-only installs stay lean): `react` & `react-dom` (>=18) plus the builder's UI libraries — `@dnd-kit/*`, `@radix-ui/*`, `lucide-react`, `cmdk`, `class-variance-authority`, `clsx`, `tailwind-merge`, and (optionally) `date-fns` + `react-day-picker` for date fields and `@monaco-editor/react` for the hook editor. Install guide and the exact list are on the [docs site](https://mukul47.github.io/reactcustomformbuilder/).
+**Peer dependencies for this half** (optional, so validator-only installs stay lean): `react` & `react-dom` (>=18) plus the builder's UI libraries — `@dnd-kit/*`, `@radix-ui/*`, `lucide-react`, `cmdk`, `class-variance-authority`, `clsx`, `tailwind-merge`, and (optionally) `date-fns` + `react-day-picker` for date fields and `@monaco-editor/react` for the hook editor. Install guide and the exact list are on the [docs site](https://mukul47.github.io/react-formloom/).
 
 ---
 
