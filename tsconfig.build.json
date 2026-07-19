@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": false,
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/components", "src/lib", "src/validator"],
+  "exclude": ["src/App.tsx", "src/main.tsx", "tests", "examples", "dist", "**/*.test.ts", "**/*.test.tsx"]
+}

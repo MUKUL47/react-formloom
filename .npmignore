@@ -1,0 +1,39 @@
+# ── npm publish layer ──────────────────────────────────────────────
+# The published tarball ships ONLY the built library + styles + preset.
+# Everything below is git-tracked but excluded from the npm package.
+# (package.json, README.md and LICENSE are always included by npm.)
+
+# Source & demo app — the build output in dist/ is what ships
+src/
+examples/
+tests/
+
+# Build & tooling config
+vite.config.ts
+vite.lib.config.ts
+tailwind.config.cjs
+tailwind.lib.config.cjs
+postcss.config.cjs
+tsconfig.json
+tsconfig.build.json
+playwright.config.ts
+index.html
+
+# Repo meta
+.git
+.github
+test-results/
+playwright-report/
+*.log
+.DS_Store
+
+# Sourcemaps — keep the published tarball lean (still in git)
+dist/**/*.map
+
+# Lockfiles (consumers resolve their own)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# NOTE: dist/ and tailwind-preset.cjs are intentionally NOT ignored —
+# they are the shipped artifacts.

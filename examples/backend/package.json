@@ -1,0 +1,17 @@
+{
+  "name": "formloom-backend-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Server-side validation of formloom submissions with Zod",
+  "scripts": {
+    "start": "tsx run-example.ts"
+  },
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.0"
+  }
+}

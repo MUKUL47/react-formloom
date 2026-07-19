@@ -1,0 +1,9 @@
+# ── git layer: track the whole repo (source, tests, demo, config, docs) ──
+# The npm publish layer is controlled separately by .npmignore.
+
+node_modules
+dist
+test-results
+playwright-report
+*.log
+.DS_Store
