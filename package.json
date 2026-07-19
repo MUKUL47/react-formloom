@@ -36,14 +36,14 @@
   "sideEffects": true,
   "main": "./dist/formloom.js",
   "module": "./dist/formloom.js",
-  "types": "./dist/components/react-custom-form-builder/index.d.ts",
+  "types": "./dist/formloom.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/components/react-custom-form-builder/index.d.ts",
+      "types": "./dist/formloom.d.ts",
       "import": "./dist/formloom.js"
     },
     "./validator": {
-      "types": "./dist/validator/schema-to-zod.d.ts",
+      "types": "./dist/validator.d.ts",
       "import": "./dist/validator.js"
     },
     "./styles.css": "./dist/styles.css",

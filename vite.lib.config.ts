@@ -12,9 +12,12 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      // API Extractor's `rollupTypes` chokes on the project's TS 6.x output,
-      // so we emit a mirrored .d.ts tree instead. vite-plugin-dts still
-      // rewrites the `@/…` path alias into relative paths in the output.
+      // Roll the whole .d.ts tree up into one file per entry — dist/formloom.d.ts
+      // and dist/validator.d.ts — instead of mirroring 70 files into the tarball.
+      // API Extractor bundles TS 5.9 and only *warns* about this project's TS 6.x;
+      // if that ever turns into a hard failure, drop this line and point the
+      // `types` fields in package.json back at the mirrored tree.
+      rollupTypes: true,
       tsconfigPath: "./tsconfig.build.json",
       entryRoot: "src",
       include: ["src/components/**/*.ts", "src/components/**/*.tsx", "src/lib/**/*.ts", "src/validator/**/*.ts"],
@@ -33,6 +36,14 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true,
     sourcemap: true,
+    // NOTE: dist/*.js looks unminified — identifiers are mangled but the
+    // whitespace is intact. That is deliberate on Vite's part, not a missing
+    // setting: for an ESM *library* build it forces `minifyWhitespace: false`
+    // so the 778 `/* @__PURE__ */` annotations survive. Those annotations are
+    // what let a consumer's bundler tree-shake the builder half away when they
+    // import only `FormRenderer`. Full minification saves 7 kB gzipped and
+    // destroys every one of them. `build.minify` is already "esbuild" here —
+    // setting it changes nothing.
     lib: {
       // Two standalone entries:
       //  • the React builder/renderer (formloom.js)

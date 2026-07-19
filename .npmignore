@@ -22,6 +22,9 @@ index.html
 # Docs-site build output (GitHub Pages) — never part of the package
 dist-site/
 
+# Local npm-consumer sandbox
+_dev/
+
 # Repo meta
 .git
 .github

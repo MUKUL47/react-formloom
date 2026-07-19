@@ -8,3 +8,6 @@ test-results
 playwright-report
 *.log
 .DS_Store
+
+# Local sandbox that installs formloom from npm to test what consumers get.
+_dev
