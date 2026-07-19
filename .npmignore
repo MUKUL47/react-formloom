@@ -19,6 +19,9 @@ tsconfig.build.json
 playwright.config.ts
 index.html
 
+# Docs-site build output (GitHub Pages) — never part of the package
+dist-site/
+
 # Repo meta
 .git
 .github
